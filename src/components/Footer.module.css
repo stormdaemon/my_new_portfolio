@@ -1,0 +1,56 @@
+/* src/components/Footer.module.css */
+
+.footer {
+    text-align: center; /* Centre le contenu par défaut (texte copyright) */
+    padding: 3rem 1rem;
+    margin-top: auto; /* Se colle en bas */
+    background-color: #111; /* Fond légèrement différent du corps */
+    border-top: 1px solid var(--border-color);
+}
+
+/* Conteneur pour les icônes sociales */
+.socialLinks {
+    display: flex; /* Active Flexbox */
+    justify-content: center; /* Centre les icônes horizontalement */
+    align-items: center; /* Centre les icônes verticalement (utile si tailles différentes) */
+    gap: 1.5rem; /* Espace entre les icônes */
+    margin-bottom: 1.5rem; /* Espace entre les icônes et le copyright */
+    flex-wrap: wrap; /* Permet de passer à la ligne si l'écran est TRES petit */
+}
+
+.socialLinks a {
+    color: var(--text-muted); /* Couleur initiale */
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block; /* Nécessaire pour appliquer transform */
+    line-height: 1; /* Assure que les icônes s'alignent bien */
+}
+
+.socialLinks a svg {
+    display: block; /* Empêche l'espace indésirable sous les SVG inline */
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .socialLinks a:hover {
+        color: var(--primary-color); /* Couleur au survol */
+        transform: scale(1.15) translateY(-2px); /* Léger zoom/soulèvement */
+    }
+}
+
+/* Style pour le texte copyright */
+.copyright {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin: 0; /* Retire les marges par défaut du paragraphe */
+    line-height: 1.5;
+}
+
+
+/* Tablette et plus */
+@media (min-width: 768px) {
+    .footer {
+        padding: 4rem 2rem; /* Plus de padding */
+    }
+    .socialLinks {
+        gap: 2rem; /* Augmente l'espace entre les icônes */
+    }
+}

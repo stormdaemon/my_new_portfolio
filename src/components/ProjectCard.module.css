@@ -1,0 +1,82 @@
+/* src/components/ProjectCard.module.css */
+.card {
+    background-color: var(--background-light); /* Utilise la variable de fond clair */
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    border: 1px solid var(--border-color); /* Bordure subtile */
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+    box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+    border-color 0.3s ease;
+    will-change: transform, box-shadow; /* Optimisation */
+}
+
+/* Effet au survol : sur desktop uniquement (avec @media hover) */
+@media (hover: hover) and (pointer: fine) {
+    .card:hover {
+        transform: translateY(-8px); /* Soulèvement un peu moins important */
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3); /* Ombre plus douce */
+        border-color: var(--primary-color); /* Bordure colorée au survol */
+    }
+
+    .card:hover .image {
+        transform: scale(1.03); /* Zoom image léger */
+    }
+
+    .card:hover .overlay {
+        opacity: 1;
+    }
+}
+
+.imageContainer {
+    position: relative;
+    overflow: hidden;
+}
+
+.image {
+    width: 100%;
+    height: 220px; /* Hauteur d'image légèrement augmentée */
+    object-fit: cover; /* Couvre bien */
+    display: block;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    background-color: #222; /* Placeholder si l'image charge lentement */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 220, 130, 0.85); /* Vert primaire avec opacité */
+    color: var(--background-dark); /* Texte foncé sur l'overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-size: 1.1rem;
+    pointer-events: none; /* N'intercepte pas les clics (c'est le lien <a> qui gère) */
+}
+
+.content {
+    padding: 1.5rem;
+}
+
+.title {
+    margin-bottom: 0.75rem;
+    font-size: 1.4rem;
+    color: var(--text-light); /* Titre clair */
+    line-height: 1.4; /* Espace de ligne */
+}
+
+.description {
+    font-size: 1rem; /* Taille de police augmentée */
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* Pas de media queries spécifiques nécessaires ici car la grille gère la largeur */

@@ -1,0 +1,82 @@
+/* src/pages/AboutPage.module.css */
+.aboutContainer {
+    width: 90%;
+    max-width: 900px; /* Conteneur central */
+    margin: 3rem auto; /* Centre et ajoute de l'espace */
+    padding: 0 1rem; /* Padding interne */
+    display: grid;
+    gap: 3rem; /* Espace entre les sections */
+}
+
+.aboutIntro h2,
+.skills h3,
+.timeline h3 {
+    color: var(--text-light); /* Titres de section clairs */
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.75rem; /* Espace pour la ligne */
+    border-bottom: 2px solid var(--primary-color); /* Ligne de séparation */
+    display: inline-block; /* Pour que la bordure ne prenne pas toute la largeur */
+}
+
+/* On retire le pseudo-élément ::after pour utiliser une bordure directe */
+
+.aboutIntro p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+}
+
+.skills {
+    /* Pas de styles spécifiques pour ce conteneur maintenant */
+}
+
+.skillCloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem; /* Espace entre les tags */
+    margin-top: 1rem;
+}
+
+.skillTag {
+    background-color: var(--background-light); /* Fond pour les tags */
+    color: var(--text-muted); /* Texte légèrement atténué */
+    padding: 0.6rem 1.2rem; /* Padding augmenté */
+    border-radius: 4px; /* Coins plus subtils */
+    font-size: 0.95rem;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    cursor: default;
+    border: 1px solid var(--border-color); /* Petite bordure */
+}
+
+.skillTag:hover {
+    background-color: var(--primary-color);
+    color: var(--background-dark);
+    transform: scale(1.03);
+    border-color: var(--primary-color);
+}
+
+.timeline {
+    /* Styles pour la section parcours */
+    border-left: 3px solid var(--border-color); /* Ligne temporelle sur la gauche */
+    padding-left: 2rem;
+}
+
+/* Tablette et plus */
+@media (min-width: 768px) {
+    .aboutContainer {
+        margin: 5rem auto; /* Plus d'espace vertical */
+        gap: 4rem; /* Plus d'espace entre sections */
+    }
+}
+
+/* Desktop et plus - Potentiel layout en 2 colonnes si besoin */
+/* @media (min-width: 992px) {
+   .aboutContainer {
+     grid-template-columns: 1fr 1fr;
+     gap: 5rem;
+   }
+   .aboutIntro { grid-column: 1 / 2; }
+   .skills { grid-column: 2 / 3; }
+   .timeline { grid-column: 1 / -1; } /* Prend toute la largeur
+} */

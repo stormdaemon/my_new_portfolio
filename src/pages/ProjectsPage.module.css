@@ -1,0 +1,58 @@
+/* src/pages/ProjectsPage.module.css */
+.projectsContainer {
+    width: 90%;
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+}
+
+.projectsContainer h2 {
+    text-align: center;
+    color: var(--text-light);
+    margin-bottom: 3rem; /* Espace sous le titre */
+    font-size: clamp(2rem, 6vw, 3rem);
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+/* Ligne décorative sous le titre H2 */
+.projectsContainer h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px; /* Largeur fixe */
+    height: 3px;
+    background-color: var(--primary-color);
+    opacity: 0.8;
+}
+
+
+.projectsGrid {
+    display: grid;
+    /* Commence avec 1 colonne sur mobile */
+    grid-template-columns: 1fr;
+    gap: 2rem; /* Espace entre les cartes */
+}
+
+/* Tablette et plus : 2 colonnes */
+@media (min-width: 768px) {
+    .projectsContainer {
+        margin: 5rem auto; /* Plus d'espace vertical */
+    }
+    .projectsGrid {
+        grid-template-columns: repeat(2, 1fr); /* 2 colonnes égales */
+        gap: 2.5rem; /* Un peu plus d'espace */
+    }
+}
+
+/* Desktop et plus : 3 colonnes (si assez de place) */
+/* Ou garder le repeat(auto-fit...) pour flexibilité maximale */
+@media (min-width: 1024px) {
+    .projectsGrid {
+        /* Ajuste minmax pour contrôler la taille minimale avant de passer à moins de colonnes */
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 3rem; /* Encore plus d'espace */
+    }
+}

@@ -1,0 +1,104 @@
+/* src/index.css */
+
+/* Reset simple et box-sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Importation de la police */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap');
+
+/* Variables CSS pour la cohérence */
+:root {
+  --primary-color: #00DC82; /* Vert Vercel/Moderne */
+  --secondary-color: #ff7f50; /* Corail (à utiliser avec parcimonie ou remplacer) */
+  --background-dark: #0f0f0f; /* Noir un peu plus doux */
+  --background-light: #1a1a1a; /* Pour les cartes/sections */
+  --text-light: #ededed;
+  --text-dark: #333;
+  --text-muted: rgba(237, 237, 237, 0.6);
+  --border-color: rgba(255, 255, 255, 0.1);
+
+  --navbar-height: 70px;
+}
+
+html {
+  scroll-behavior: smooth; /* Défilement doux */
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: var(--background-dark);
+  color: var(--text-light);
+  line-height: 1.7; /* Augmenté pour meilleure lisibilité */
+  font-size: 16px; /* Base pour les unités rem */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden; /* Empêche le défilement horizontal accidentel */
+}
+
+/* Style de la scrollbar (optionnel, pour le look) */
+body::-webkit-scrollbar {
+  width: 8px;
+}
+body::-webkit-scrollbar-track {
+  background: var(--background-dark);
+}
+body::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 4px;
+  border: 2px solid var(--background-dark);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.3;
+  margin-bottom: 1.25rem;
+  font-weight: 700; /* Plus audacieux par défaut */
+  color: var(--text-light); /* S'assurer qu'ils sont clairs */
+}
+
+h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 900; }
+h2 { font-size: clamp(2rem, 6vw, 3rem); }
+h3 { font-size: clamp(1.5rem, 4vw, 2rem); }
+
+p {
+  margin-bottom: 1rem;
+  max-width: 65ch; /* Limite la longueur des lignes pour la lisibilité */
+  color: var(--text-muted); /* Couleur légèrement atténuée pour les paragraphes */
+}
+
+a {
+  color: var(--primary-color); /* Couleur primaire pour les liens */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--text-light); /* Plus clair au survol */
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Utilitaires (peuvent être déplacés dans un fichier séparé si besoin) */
+.container {
+  width: 90%;
+  max-width: 1200px; /* Limite de largeur pour les grands écrans */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+main {
+  padding-top: var(--navbar-height); /* Empêche le contenu d'être sous la navbar fixe */
+  min-height: calc(100vh - var(--navbar-height)); /* Assure que le footer est au moins en bas */
+  display: flex;
+  flex-direction: column; /* Permet au footer de se pousser vers le bas */
+}

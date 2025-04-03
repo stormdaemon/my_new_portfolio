@@ -1,0 +1,172 @@
+/* src/components/Navbar.module.css */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem; /* Moins de padding vertical sur mobile */
+    height: var(--navbar-height);
+    background-color: rgba(15, 15, 15, 0.85);
+    backdrop-filter: blur(10px);
+    position: fixed; /* Change de sticky à fixed pour un meilleur contrôle */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.3s ease; /* Transition douce si on change le fond au scroll plus tard */
+}
+
+.logo {
+    font-weight: 700; /* Un peu plus gras */
+    font-size: 1.4rem; /* Taille ajustée */
+    color: var(--text-light); /* Texte clair pour le logo aussi */
+    z-index: 1002; /* Au-dessus du menu mobile */
+}
+
+.logo a {
+    color: inherit; /* Hérite de la couleur du parent */
+    text-decoration: none;
+}
+
+
+.navLinks {
+    list-style: none;
+    display: flex;
+    flex-direction: column; /* Vertical sur mobile */
+    position: fixed; /* Couvre l'écran */
+    top: 0;
+    left: 100%; /* Commence hors écran à droite */
+    width: 100%;
+    height: 100vh;
+    background-color: var(--background-dark); /* Fond plein */
+    justify-content: center;
+    align-items: center;
+    gap: 2rem; /* Espace entre les liens dans le menu mobile */
+    transition: left 0.4s cubic-bezier(0.86, 0, 0.07, 1); /* Transition fluide */
+    z-index: 1001; /* En dessous du logo/burger, au-dessus du reste */
+}
+
+.navLinks.open {
+    left: 0; /* Glisse en position quand ouvert */
+}
+
+.navLinks li {
+    /* Rien de spécifique pour le li lui-même ici */
+}
+
+.navLinks a {
+    color: var(--text-muted); /* Plus doux dans le menu */
+    text-decoration: none;
+    padding: 0.5rem 1rem; /* Zone cliquable plus grande */
+    font-size: 1.5rem; /* Plus grands liens dans le menu mobile */
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.navLinks a:hover,
+.navLinks a.active {
+    color: var(--primary-color);
+}
+
+/* Effet soulignement (uniquement si nécessaire, peut être simple sur mobile) */
+/*
+.navLinks a::after { ... }
+.navLinks a:hover::after,
+.navLinks a.active::after { ... }
+*/
+
+.burger {
+    display: flex; /* Afficher le burger sur mobile */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1002; /* Au-dessus du menu */
+}
+
+.burger:focus {
+    outline: none;
+}
+
+.burger div {
+    width: 2rem;
+    height: 0.25rem;
+    background-color: var(--text-light);
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 1px; /* Pour l'animation en croix */
+}
+
+/* Styles du burger quand le menu est ouvert */
+.burger.active div:nth-child(1) {
+    transform: rotate(45deg);
+}
+
+.burger.active div:nth-child(2) {
+    opacity: 0;
+    transform: translateX(20px);
+}
+
+.burger.active div:nth-child(3) {
+    transform: rotate(-45deg);
+}
+
+
+/* Tablette et plus */
+@media (min-width: 768px) {
+    .navbar {
+        padding: 0 2rem; /* Plus de padding horizontal */
+    }
+
+    .burger {
+        display: none; /* Cacher le burger */
+    }
+
+    .navLinks {
+        position: static; /* Retourne dans le flux normal */
+        flex-direction: row; /* Horizontal */
+        height: auto;
+        width: auto;
+        background-color: transparent;
+        gap: 1.8rem; /* Espace entre les liens sur desktop */
+        left: auto; /* Reset la position */
+        transition: none; /* Pas besoin de transition de position */
+    }
+
+    .navLinks a {
+        font-size: 1rem; /* Taille normale pour le bureau */
+        color: var(--text-muted); /* Couleur par défaut sur bureau */
+        padding: 0.5rem 0; /* Padding différent sur desktop */
+    }
+
+    .navLinks a:hover,
+    .navLinks a.active {
+        color: var(--primary-color); /* Couleur active */
+    }
+
+    /* Ajoutons une petite ligne sous le lien actif/hover sur desktop */
+    .navLinks a::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -5px; /* Un peu plus bas */
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: var(--primary-color);
+        transition: width 0.3s ease;
+    }
+
+    .navLinks a:hover::after,
+    .navLinks a.active::after {
+        width: 60%; /* Ou 100% selon préférence */
+    }
+
+}

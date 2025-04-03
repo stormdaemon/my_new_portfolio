@@ -1,0 +1,107 @@
+/* src/pages/HomePage.module.css */
+
+.hero {
+    /* Prend presque toute la hauteur visible moins la navbar */
+    min-height: calc(100vh - var(--navbar-height));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1rem; /* Padding pour petits écrans */
+    overflow: hidden; /* Pour les animations */
+    position: relative;
+    width: 100%; /* Prend toute la largeur */
+}
+
+.title {
+    font-size: clamp(2.8rem, 10vw, 6rem); /* Taille responsive audacieuse */
+    color: var(--text-light); /* Titre principal en clair */
+    margin-bottom: 0.5rem;
+    line-height: 1.1;
+    font-weight: 900; /* Très audacieux */
+    letter-spacing: -0.02em; /* Rapprochement léger */
+}
+
+.subtitle {
+    display: block;
+    font-size: clamp(1.1rem, 4vw, 1.8rem);
+    color: var(--primary-color); /* Sous-titre avec couleur primaire */
+    font-weight: 400; /* Poids normal */
+    margin-top: 0.8rem;
+    letter-spacing: 0.01em;
+}
+
+.description {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 1.5rem auto 2.5rem auto; /* Ajustement des marges */
+}
+
+.ctaButtons {
+    display: flex;
+    flex-direction: column; /* Boutons empilés sur mobile */
+    gap: 1rem;
+    width: 100%;
+    max-width: 300px; /* Limite la largeur des boutons empilés */
+    align-items: stretch; /* Les boutons prennent la même largeur */
+    margin-top: 2rem;
+}
+
+.ctaPrimary,
+.ctaSecondary {
+    padding: 0.9rem 1.5rem; /* Padding ajusté */
+    border-radius: 6px; /* Coins légèrement arrondis */
+    font-weight: 500;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block;
+    text-align: center; /* Centre le texte */
+    font-size: 1rem;
+    border: 2px solid transparent; /* Bordure transparente pour garder la taille au hover */
+}
+
+.ctaPrimary {
+    background-color: var(--primary-color);
+    color: var(--background-dark); /* Texte sombre sur fond primaire */
+    border-color: var(--primary-color);
+}
+
+.ctaPrimary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 220, 130, 0.25); /* Ombre plus prononcée */
+    background-color: #00ef90; /* Un peu plus clair au survol */
+}
+
+.ctaSecondary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.ctaSecondary:hover {
+    background-color: rgba(0, 220, 130, 0.1); /* Léger fond au survol */
+    transform: translateY(-3px);
+}
+
+/* Tablette et plus */
+@media (min-width: 768px) {
+    .hero {
+        padding: 4rem 2rem; /* Plus de padding */
+    }
+
+    .ctaButtons {
+        flex-direction: row; /* Boutons côte à côte */
+        max-width: none; /* Plus de limite de largeur */
+        justify-content: center;
+        align-items: center; /* Alignement normal */
+        width: auto; /* Largeur automatique */
+        gap: 1.5rem; /* Plus d'espace */
+    }
+
+    .ctaPrimary,
+    .ctaSecondary {
+        padding: 0.9rem 2.5rem; /* Plus large sur desktop */
+        width: auto; /* Ne pas forcer la largeur */
+    }
+}
