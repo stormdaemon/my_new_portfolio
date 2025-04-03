@@ -77,8 +77,8 @@ L'objectif principal de ce projet était de mieux comprendre React, ses forces, 
 
 Vous pouvez me retrouver sur :
 
-*   **GitHub :** [Lien vers votre profil GitHub]
-*   **LinkedIn :** [Lien vers votre profil LinkedIn]
+*   **GitHub :** https://github.com/stormdaemon
+*   **LinkedIn :** https://www.linkedin.com/in/th%C3%A9o-lafont-30572b26a/
 *   **Email :** Via le [formulaire de contact]([LIEN_VERS_VOTRE_PAGE_CONTACT_UNE_FOIS_DEPLOYEE]) sur le site (une fois déployé).
 
 N'hésitez pas à me contacter pour toute question ou opportunité !
