@@ -68,7 +68,7 @@ L'objectif principal de ce projet était de mieux comprendre React, ses forces, 
 
 ## 🔮 Prochaines Étapes
 
-*   [ ] Déployer le site sur Netlify.
+*   [☑️] Déployer le site sur Netlify.
 *   [ ] Compléter et ajouter la section "Mon Parcours".
 *   [ ] Remplir tous les liens manquants (profils sociaux, etc.).
 *   [ ] (Optionnel) Optimiser davantage les performances et le SEO.
